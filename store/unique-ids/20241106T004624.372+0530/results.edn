@@ -1,0 +1,123 @@
+{:perf {:latency-graph {:valid? true},
+        :rate-graph {:valid? true},
+        :valid? true},
+ :timeline {:valid? true},
+ :exceptions {:valid? true,
+              :exceptions ({:count 25449,
+                            :class clojure.lang.ExceptionInfo,
+                            :example #jepsen.history.Op{:index 5,
+                                                        :time 54146844,
+                                                        :type :info,
+                                                        :process 0,
+                                                        :f :generate,
+                                                        :value nil,
+                                                        :exception {:via [{:type clojure.lang.ExceptionInfo,
+                                                                           :message "Malformed RPC response. Maelstrom sent node n0 the following request:\n\n{:type \"generate\", :msg_id 1}\n\nAnd expected a response of the form:\n\n{:type (eq \"generate_ok\"), :id Any, {:k :msg_id} Int, :in_reply_to Int}\n\n... but instead received\n\n{:Id \"c985359e-5ca3-4d96-adeb-eac5d67d7bce\",\n :Type \"generate_ok\",\n :in_reply_to 1}\n\nThis is malformed because:\n\n{:type missing-required-key,\n :id missing-required-key,\n :Id disallowed-key,\n :Type disallowed-key}\n\nSee doc/protocol.md for more guidance.",
+                                                                           :data {:type :malformed-rpc-response,
+                                                                                  :body {:Id "c985359e-5ca3-4d96-adeb-eac5d67d7bce",
+                                                                                         :Type "generate_ok",
+                                                                                         :in_reply_to 1}},
+                                                                           :at [slingshot.support$stack_trace
+                                                                                invoke
+                                                                                "support.clj"
+                                                                                201]}],
+                                                                    :trace [[slingshot.support$stack_trace
+                                                                             invoke
+                                                                             "support.clj"
+                                                                             201]
+                                                                            [maelstrom.client$check_body
+                                                                             invokeStatic
+                                                                             "client.clj"
+                                                                             188]
+                                                                            [maelstrom.client$check_body
+                                                                             invoke
+                                                                             "client.clj"
+                                                                             181]
+                                                                            [maelstrom.workload.unique_ids$fn__20063$generate_BANG___20064
+                                                                             invoke
+                                                                             "unique_ids.clj"
+                                                                             31]
+                                                                            [maelstrom.workload.unique_ids$fn__20063$generate_BANG___20064
+                                                                             invoke
+                                                                             "unique_ids.clj"
+                                                                             31]
+                                                                            [maelstrom.workload.unique_ids$client$reify__20074
+                                                                             invoke_BANG_
+                                                                             "unique_ids.clj"
+                                                                             52]
+                                                                            [jepsen.client.Validate
+                                                                             invoke_BANG_
+                                                                             "client.clj"
+                                                                             83]
+                                                                            [jepsen.generator.interpreter.ClientWorker
+                                                                             invoke_BANG_
+                                                                             "interpreter.clj"
+                                                                             65]
+                                                                            [jepsen.generator.interpreter$spawn_worker$fn__12908$fn__12909
+                                                                             invoke
+                                                                             "interpreter.clj"
+                                                                             140]
+                                                                            [jepsen.generator.interpreter$spawn_worker$fn__12908
+                                                                             invoke
+                                                                             "interpreter.clj"
+                                                                             123]
+                                                                            [clojure.core$binding_conveyor_fn$fn__5823
+                                                                             invoke
+                                                                             "core.clj"
+                                                                             2047]
+                                                                            [clojure.lang.AFn
+                                                                             call
+                                                                             "AFn.java"
+                                                                             18]
+                                                                            [java.util.concurrent.FutureTask
+                                                                             run
+                                                                             "FutureTask.java"
+                                                                             317]
+                                                                            [java.util.concurrent.ThreadPoolExecutor
+                                                                             runWorker
+                                                                             "ThreadPoolExecutor.java"
+                                                                             1144]
+                                                                            [java.util.concurrent.ThreadPoolExecutor$Worker
+                                                                             run
+                                                                             "ThreadPoolExecutor.java"
+                                                                             642]
+                                                                            [java.lang.Thread
+                                                                             run
+                                                                             "Thread.java"
+                                                                             1575]],
+                                                                    :cause "Malformed RPC response. Maelstrom sent node n0 the following request:\n\n{:type \"generate\", :msg_id 1}\n\nAnd expected a response of the form:\n\n{:type (eq \"generate_ok\"), :id Any, {:k :msg_id} Int, :in_reply_to Int}\n\n... but instead received\n\n{:Id \"c985359e-5ca3-4d96-adeb-eac5d67d7bce\",\n :Type \"generate_ok\",\n :in_reply_to 1}\n\nThis is malformed because:\n\n{:type missing-required-key,\n :id missing-required-key,\n :Id disallowed-key,\n :Type disallowed-key}\n\nSee doc/protocol.md for more guidance.",
+                                                                    :data {:type :malformed-rpc-response,
+                                                                           :body {:Id "c985359e-5ca3-4d96-adeb-eac5d67d7bce",
+                                                                                  :Type "generate_ok",
+                                                                                  :in_reply_to 1}}},
+                                                        :error "indeterminate: Malformed RPC response. Maelstrom sent node n0 the following request:\n\n{:type \"generate\", :msg_id 1}\n\nAnd expected a response of the form:\n\n{:type (eq \"generate_ok\"), :id Any, {:k :msg_id} Int, :in_reply_to Int}\n\n... but instead received\n\n{:Id \"c985359e-5ca3-4d96-adeb-eac5d67d7bce\",\n :Type \"generate_ok\",\n :in_reply_to 1}\n\nThis is malformed because:\n\n{:type missing-required-key,\n :id missing-required-key,\n :Id disallowed-key,\n :Type disallowed-key}\n\nSee doc/protocol.md for more guidance."}})},
+ :stats {:valid? false,
+         :count 25449,
+         :ok-count 0,
+         :fail-count 0,
+         :info-count 25449,
+         :by-f {:generate {:valid? false,
+                           :count 25449,
+                           :ok-count 0,
+                           :fail-count 0,
+                           :info-count 25449}}},
+ :availability {:valid? false, :ok-fraction 0.0},
+ :net {:all {:send-count 50904,
+             :recv-count 50904,
+             :msg-count 50904,
+             :msgs-per-op 2.0002358},
+       :clients {:send-count 50904,
+                 :recv-count 50904,
+                 :msg-count 50904},
+       :servers {:send-count 0,
+                 :recv-count 0,
+                 :msg-count 0,
+                 :msgs-per-op 0.0},
+       :valid? true},
+ :workload {:valid? true,
+            :attempted-count 25449,
+            :acknowledged-count 0,
+            :duplicated-count 0,
+            :duplicated {},
+            :range [nil nil]},
+ :valid? false}

@@ -1,0 +1,14 @@
+{:index 0, :time 12209624, :type :invoke, :process 0, :f :echo, :value "Please echo 60"}
+{:index 1, :time 19281826, :type :ok, :process 0, :f :echo, :value {:echo "Please echo 60", :in_reply_to 1, :msg_id 1, :type "echo_ok"}}
+{:index 2, :time 241610647, :type :invoke, :process 0, :f :echo, :value "Please echo 122"}
+{:index 3, :time 244316446, :type :ok, :process 0, :f :echo, :value {:echo "Please echo 122", :in_reply_to 2, :msg_id 2, :type "echo_ok"}}
+{:index 4, :time 441353905, :type :invoke, :process 0, :f :echo, :value "Please echo 83"}
+{:index 5, :time 447613749, :type :ok, :process 0, :f :echo, :value {:echo "Please echo 83", :in_reply_to 3, :msg_id 3, :type "echo_ok"}}
+{:index 6, :time 586758554, :type :invoke, :process 0, :f :echo, :value "Please echo 98"}
+{:index 7, :time 592806501, :type :ok, :process 0, :f :echo, :value {:echo "Please echo 98", :in_reply_to 4, :msg_id 4, :type "echo_ok"}}
+{:index 8, :time 670098405, :type :invoke, :process 0, :f :echo, :value "Please echo 13"}
+{:index 9, :time 677765421, :type :ok, :process 0, :f :echo, :value {:echo "Please echo 13", :in_reply_to 5, :msg_id 5, :type "echo_ok"}}
+{:index 10, :time 797425855, :type :invoke, :process 0, :f :echo, :value "Please echo 47"}
+{:index 11, :time 802610806, :type :ok, :process 0, :f :echo, :value {:echo "Please echo 47", :in_reply_to 6, :msg_id 6, :type "echo_ok"}}
+{:index 12, :time 956101941, :type :invoke, :process 0, :f :echo, :value "Please echo 95"}
+{:index 13, :time 958355069, :type :ok, :process 0, :f :echo, :value {:echo "Please echo 95", :in_reply_to 7, :msg_id 7, :type "echo_ok"}}

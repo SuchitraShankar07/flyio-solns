@@ -1,0 +1,167 @@
+2024-10-28 17:25:26,618{GMT}	INFO	[jepsen test runner] jepsen.core: Command line:
+lein run test -w echo --bin /home/Suchitra/go/bin/test --node-count 1 --time-limit 1
+2024-10-28 17:25:26,650{GMT}	INFO	[jepsen test runner] jepsen.core: Running test:
+{:args []
+ :remote
+ #jepsen.control.retry.Remote{:remote #jepsen.control.scp.Remote{:cmd-remote #jepsen.control.sshj.SSHJRemote{:concurrency-limit 6,
+                                                                                                             :conn-spec nil,
+                                                                                                             :client nil,
+                                                                                                             :semaphore nil},
+                                                                 :conn-spec nil},
+                              :conn nil}
+ :log-net-send false
+ :node-count 1
+ :availability nil
+ :max-txn-length 4
+ :concurrency 1
+ :db
+ #object[maelstrom.db$db$reify__16142
+         "0x210c4071"
+         "maelstrom.db$db$reify__16142@210c4071"]
+ :max-writes-per-key 16
+ :leave-db-running? false
+ :name "echo"
+ :logging-json? false
+ :start-time
+ #object[org.joda.time.DateTime "0x473e0536" "2024-10-28T17:25:26.602+05:30"]
+ :nemesis-interval 10
+ :net
+ #object[maelstrom.net$jepsen_net$reify__15251
+         "0x7f8f120c"
+         "maelstrom.net$jepsen_net$reify__15251@7f8f120c"]
+ :client
+ #object[maelstrom.workload.echo$client$reify__16863
+         "0x2110b756"
+         "maelstrom.workload.echo$client$reify__16863@2110b756"]
+ :barrier
+ #object[java.util.concurrent.CyclicBarrier
+         "0x33e09baf"
+         "java.util.concurrent.CyclicBarrier@33e09baf"]
+ :log-stderr false
+ :pure-generators true
+ :ssh {:dummy? true}
+ :rate 5
+ :checker
+ #object[jepsen.checker$compose$reify__11881
+         "0x4c02f50"
+         "jepsen.checker$compose$reify__11881@4c02f50"]
+ :argv
+ ("test"
+  "-w"
+  "echo"
+  "--bin"
+  "/home/Suchitra/go/bin/test"
+  "--node-count"
+  "1"
+  "--time-limit"
+  "1")
+ :nemesis
+ (jepsen.nemesis.ReflCompose
+  {:fm {:start-partition 0,
+        :stop-partition 0,
+        :kill 1,
+        :start 1,
+        :pause 1,
+        :resume 1},
+   :nemeses [#unprintable "jepsen.nemesis.combined$partition_nemesis$reify__16416@35852b6"
+             #unprintable "jepsen.nemesis.combined$db_nemesis$reify__16397@27d6ff8c"]})
+ :nodes ["n0"]
+ :test-count 1
+ :latency {:mean 0, :dist :constant}
+ :bin "/home/Suchitra/go/bin/test"
+ :generator
+ (jepsen.generator.TimeLimit
+  {:limit 1000000000,
+   :cutoff nil,
+   :gen (jepsen.generator.Any
+         {:gens [(jepsen.generator.OnThreads
+                  {:f #{:nemesis},
+                   :context-filter #object[jepsen.generator.context$make_thread_filter$lazy_filter__9167
+                                           "0x39b752f4"
+                                           "jepsen.generator.context$make_thread_filter$lazy_filter__9167@39b752f4"],
+                   :gen nil})
+                 (jepsen.generator.OnThreads
+                  {:f #jepsen.generator.context.AllBut{:element :nemesis},
+                   :context-filter #object[jepsen.generator.context$make_thread_filter$lazy_filter__9167
+                                           "0x1990afa2"
+                                           "jepsen.generator.context$make_thread_filter$lazy_filter__9167@1990afa2"],
+                   :gen (jepsen.generator.Stagger
+                         {:dt 400000000,
+                          :next-time nil,
+                          :gen (jepsen.generator.EachThread
+                                {:fresh-gen #object[maelstrom.workload.echo$workload$fn__16882
+                                                    "0x57be28d1"
+                                                    "maelstrom.workload.echo$workload$fn__16882@57be28d1"],
+                                 :context-filters #object[clojure.core$promise$reify__8591
+                                                          "0x19f72e12"
+                                                          {:status :pending,
+                                                           :val nil}],
+                                 :gens {}})})})]})})
+ :log-net-recv false
+ :os
+ #object[maelstrom.net$jepsen_os$reify__15254
+         "0x1ad4ff2a"
+         "maelstrom.net$jepsen_os$reify__15254@1ad4ff2a"]
+ :time-limit 1
+ :workload :echo
+ :consistency-models [:strict-serializable]
+ :topology :grid}
+
+2024-10-28 17:25:27,552{GMT}	INFO	[jepsen node n0] maelstrom.net: Starting Maelstrom network
+2024-10-28 17:25:27,553{GMT}	INFO	[jepsen test runner] jepsen.db: Tearing down DB
+2024-10-28 17:25:27,554{GMT}	INFO	[jepsen test runner] jepsen.db: Setting up DB
+2024-10-28 17:25:27,556{GMT}	INFO	[jepsen node n0] maelstrom.service: Starting services: (lin-kv lin-tso lww-kv seq-kv)
+2024-10-28 17:25:27,558{GMT}	INFO	[jepsen node n0] maelstrom.db: Setting up n0
+2024-10-28 17:25:27,559{GMT}	INFO	[jepsen node n0] maelstrom.process: launching /home/Suchitra/go/bin/test []
+2024-10-28 17:25:27,577{GMT}	INFO	[jepsen test runner] jepsen.core: Relative time begins now
+2024-10-28 17:25:27,593{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:invoke	:echo	"Please echo 60"
+2024-10-28 17:25:27,597{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:ok	:echo	{:echo "Please echo 60", :in_reply_to 1, :msg_id 1, :type "echo_ok"}
+2024-10-28 17:25:27,818{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:invoke	:echo	"Please echo 122"
+2024-10-28 17:25:27,820{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:ok	:echo	{:echo "Please echo 122", :in_reply_to 2, :msg_id 2, :type "echo_ok"}
+2024-10-28 17:25:28,019{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:invoke	:echo	"Please echo 83"
+2024-10-28 17:25:28,023{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:ok	:echo	{:echo "Please echo 83", :in_reply_to 3, :msg_id 3, :type "echo_ok"}
+2024-10-28 17:25:28,164{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:invoke	:echo	"Please echo 98"
+2024-10-28 17:25:28,169{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:ok	:echo	{:echo "Please echo 98", :in_reply_to 4, :msg_id 4, :type "echo_ok"}
+2024-10-28 17:25:28,248{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:invoke	:echo	"Please echo 13"
+2024-10-28 17:25:28,254{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:ok	:echo	{:echo "Please echo 13", :in_reply_to 5, :msg_id 5, :type "echo_ok"}
+2024-10-28 17:25:28,375{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:invoke	:echo	"Please echo 47"
+2024-10-28 17:25:28,379{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:ok	:echo	{:echo "Please echo 47", :in_reply_to 6, :msg_id 6, :type "echo_ok"}
+2024-10-28 17:25:28,533{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:invoke	:echo	"Please echo 95"
+2024-10-28 17:25:28,534{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:ok	:echo	{:echo "Please echo 95", :in_reply_to 7, :msg_id 7, :type "echo_ok"}
+2024-10-28 17:25:28,548{GMT}	INFO	[jepsen test runner] jepsen.core: Run complete, writing
+2024-10-28 17:25:28,581{GMT}	INFO	[jepsen node n0] maelstrom.db: Tearing down n0
+2024-10-28 17:25:29,559{GMT}	INFO	[jepsen node n0] maelstrom.net: Shutting down Maelstrom network
+2024-10-28 17:25:29,560{GMT}	INFO	[jepsen test runner] jepsen.core: Analyzing...
+2024-10-28 17:25:29,793{GMT}	INFO	[jepsen test runner] jepsen.core: Analysis complete
+2024-10-28 17:25:29,800{GMT}	INFO	[jepsen results] jepsen.store: Wrote /home/Suchitra/Downloads/maelstrom/store/echo/20241028T172526.602+0530/results.edn
+2024-10-28 17:25:29,810{GMT}	INFO	[jepsen test runner] jepsen.core: {:perf {:latency-graph {:valid? true},
+        :rate-graph {:valid? true},
+        :valid? true},
+ :timeline {:valid? true},
+ :exceptions {:valid? true},
+ :stats {:valid? true,
+         :count 7,
+         :ok-count 7,
+         :fail-count 0,
+         :info-count 0,
+         :by-f {:echo {:valid? true,
+                       :count 7,
+                       :ok-count 7,
+                       :fail-count 0,
+                       :info-count 0}}},
+ :availability {:valid? true, :ok-fraction 1.0},
+ :net {:all {:send-count 16,
+             :recv-count 16,
+             :msg-count 16,
+             :msgs-per-op 2.2857144},
+       :clients {:send-count 16, :recv-count 16, :msg-count 16},
+       :servers {:send-count 0,
+                 :recv-count 0,
+                 :msg-count 0,
+                 :msgs-per-op 0.0},
+       :valid? true},
+ :workload {:valid? true, :errors ()},
+ :valid? true}
+
+
+Everything looks good! ヽ(‘ー`)ノ

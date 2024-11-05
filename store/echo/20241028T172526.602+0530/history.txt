@@ -1,0 +1,14 @@
+0	:invoke	:echo	"Please echo 60"
+0	:ok	:echo	{:echo "Please echo 60", :in_reply_to 1, :msg_id 1, :type "echo_ok"}
+0	:invoke	:echo	"Please echo 122"
+0	:ok	:echo	{:echo "Please echo 122", :in_reply_to 2, :msg_id 2, :type "echo_ok"}
+0	:invoke	:echo	"Please echo 83"
+0	:ok	:echo	{:echo "Please echo 83", :in_reply_to 3, :msg_id 3, :type "echo_ok"}
+0	:invoke	:echo	"Please echo 98"
+0	:ok	:echo	{:echo "Please echo 98", :in_reply_to 4, :msg_id 4, :type "echo_ok"}
+0	:invoke	:echo	"Please echo 13"
+0	:ok	:echo	{:echo "Please echo 13", :in_reply_to 5, :msg_id 5, :type "echo_ok"}
+0	:invoke	:echo	"Please echo 47"
+0	:ok	:echo	{:echo "Please echo 47", :in_reply_to 6, :msg_id 6, :type "echo_ok"}
+0	:invoke	:echo	"Please echo 95"
+0	:ok	:echo	{:echo "Please echo 95", :in_reply_to 7, :msg_id 7, :type "echo_ok"}
