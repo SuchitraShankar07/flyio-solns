@@ -1,0 +1,76 @@
+:nemesis	:info	:start-partition	:majority
+1	:invoke	:read	nil
+:nemesis	:info	:start-partition	[:isolated {"n4" #{"n2" "n1" "n0"}, "n3" #{"n2" "n1" "n0"}, "n2" #{"n4" "n3"}, "n1" #{"n4" "n3"}, "n0" #{"n4" "n3"}}]
+1	:ok	:read	[]
+2	:invoke	:broadcast	0
+2	:ok	:broadcast	0
+3	:invoke	:broadcast	1
+3	:ok	:broadcast	1
+4	:invoke	:broadcast	2
+4	:ok	:broadcast	2
+0	:invoke	:read	nil
+0	:ok	:read	[0]
+0	:invoke	:broadcast	3
+0	:ok	:broadcast	3
+1	:invoke	:broadcast	4
+1	:ok	:broadcast	4
+2	:invoke	:broadcast	5
+2	:ok	:broadcast	5
+3	:invoke	:read	nil
+3	:ok	:read	[1 2]
+4	:invoke	:read	nil
+4	:ok	:read	[1 2]
+0	:invoke	:broadcast	6
+1	:invoke	:broadcast	7
+2	:invoke	:broadcast	8
+3	:invoke	:read	nil
+4	:invoke	:read	nil
+0	:info	:broadcast	6	:net-timeout
+5	:invoke	:broadcast	9
+1	:info	:broadcast	7	:net-timeout
+2	:info	:broadcast	8	:net-timeout
+6	:invoke	:broadcast	10
+3	:fail	:read	nil	:net-timeout
+7	:invoke	:read	nil
+4	:fail	:read	nil	:net-timeout
+3	:invoke	:read	nil
+4	:invoke	:broadcast	11
+5	:info	:broadcast	9	:net-timeout
+10	:invoke	:broadcast	12
+6	:info	:broadcast	10	:net-timeout
+11	:invoke	:read	nil
+7	:fail	:read	nil	:net-timeout
+7	:invoke	:broadcast	13
+3	:fail	:read	nil	:net-timeout
+3	:invoke	:read	nil
+4	:info	:broadcast	11	:net-timeout
+9	:invoke	:read	nil
+10	:info	:broadcast	12	:net-timeout
+15	:invoke	:read	nil
+11	:fail	:read	nil	:net-timeout
+11	:invoke	:read	nil
+7	:info	:broadcast	13	:net-timeout
+12	:invoke	:read	nil
+3	:fail	:read	nil	:net-timeout
+3	:invoke	:broadcast	14
+9	:fail	:read	nil	:net-timeout
+9	:invoke	:read	nil
+:nemesis	:info	:stop-partition	nil
+:nemesis	:info	:stop-partition	:network-healed
+15	:fail	:read	nil	:net-timeout
+11	:fail	:read	nil	:net-timeout
+12	:fail	:read	nil	:net-timeout
+3	:info	:broadcast	14	:net-timeout
+9	:fail	:read	nil	:net-timeout
+:nemesis	:info	:stop-partition	nil
+:nemesis	:info	:stop-partition	:network-healed
+12	:invoke	:read	nil
+9	:invoke	:read	nil
+8	:invoke	:read	nil
+15	:invoke	:read	nil
+11	:invoke	:read	nil
+12	:fail	:read	nil	:net-timeout
+9	:fail	:read	nil	:net-timeout
+11	:fail	:read	nil	:net-timeout
+15	:fail	:read	nil	:net-timeout
+8	:fail	:read	nil	:net-timeout
